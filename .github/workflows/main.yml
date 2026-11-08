@@ -26,6 +26,8 @@ jobs:
           F=app/src/main/java/com/fuck/iab/FakeBinder.kt
           sed -i 's/\r$//' app/build.gradle "$F"
           sed -i 's|// get purchase config bazaar|if (isGoogle) { data.setDataPosition(oldPos); return onTransact(3, data, reply, flags) }\n                    // get purchase config bazaar|' "$F"
+          sed -i 's|flags: Int): Boolean {|flags: Int): Boolean {\n        android.util.Log.e("FKIAB", "tx code=" + code)|' "$F"
+          grep -n "tx code=" "$F"
           sed -i '/externalNativeBuild {/,/^    }$/d' app/build.gradle
           sed -i '/ndkVersion/d' app/build.gradle
           sed -i '/^    splits {/,/^    }$/d' app/build.gradle
