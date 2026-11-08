@@ -17,8 +17,8 @@ jobs:
           unzip -o b.apk "lib/arm64-v8a/libnativehook.so" -d t
           mkdir -p app/src/main/jniLibs/arm64-v8a
           cp t/lib/arm64-v8a/libnativehook.so app/src/main/jniLibs/arm64-v8a/
-          python3 .github/a.py
-          python3 .github/b.py
+          python3 .github/a.py/a.py
+          python3 .github/b.py/b.py
           sed -i '/distributionSha256Sum/d' gradle/wrapper/gradle-wrapper.properties
       - run: sh gradlew assembleDebug --no-daemon
       - uses: actions/upload-artifact@v4
