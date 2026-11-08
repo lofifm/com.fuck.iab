@@ -17,9 +17,8 @@ jobs:
           unzip -o b.apk "lib/arm64-v8a/libnativehook.so" -d t
           mkdir -p app/src/main/jniLibs/arm64-v8a
           cp t/lib/arm64-v8a/libnativehook.so app/src/main/jniLibs/arm64-v8a/
-      - run: |
-          echo 'aW1wb3J0IHJlCmc9b3BlbignYXBwL2J1aWxkLmdyYWRsZScpLnJlYWQoKQpnPXJlLnN1YihyJ1xuICAgIChleHRlcm5hbE5hdGl2ZUJ1aWxkfHNwbGl0cykgXHsuKj9cbiAgICBcfVxuJywnXG4nLGcsZmxhZ3M9cmUuUykKZz1yZS5zdWIocidcbiAgICBuZGtWZXJzaW9uID0gIlteIl0qIlxuJywnXG4nLGcpCm9wZW4oJ2FwcC9idWlsZC5ncmFkbGUnLCd3Jykud3JpdGUoZykKRj0nYXBwL3NyYy9tYWluL2phdmEvY29tL2Z1Y2svaWFiL0Zha2VCaW5kZXIua3QnCnM9b3BlbihGLGVuY29kaW5nPSd1dGYtOCcpLnJlYWQoKS5yZXBsYWNlKCdcclxuJywnXG4nKQpzPXMucmVwbGFjZSgnICAgICAgICAgICAgICAgIDMsIDggLT4geycsJyAgICAgICAgICAgICAgICAzLCA3LCA4IC0+IHsnLDEpCnM9cmUuc3ViKHInICAgICAgICAgICAgICAgIDcgLT4gXHsuKj9cbiAgICAgICAgICAgICAgICBcfVxuXG4gICAgICAgICAgICAgICAgOSwgOTAyIC0+JywnICAgICAgICAgICAgICAgIDksIDkwMiAtPicscyxjb3VudD0xLGZsYWdzPXJlLlMpCnM9cy5yZXBsYWNlKCdmbGFnczogSW50KTogQm9vbGVhbiB7JywnZmxhZ3M6IEludCk6IEJvb2xlYW4ge1xuICAgICAgICBhbmRyb2lkLnV0aWwuTG9nLmUoIkZLSUFCIiwidHggY29kZT0iK2NvZGUpJywxKQpvcGVuKEYsJ3cnLGVuY29kaW5nPSd1dGYtOCcsbmV3bGluZT0nXG4nKS53cml0ZShzKQo=' | base64 -d > /tmp/p.py
-          python3 /tmp/p.py
+          python3 .github/a.py
+          python3 .github/b.py
           sed -i '/distributionSha256Sum/d' gradle/wrapper/gradle-wrapper.properties
       - run: sh gradlew assembleDebug --no-daemon
       - uses: actions/upload-artifact@v4
